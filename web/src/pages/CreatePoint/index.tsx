@@ -1,6 +1,6 @@
 import React, { useEffect, useState, ChangeEvent, FormEvent } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { FiArrowLeft } from "react-icons/fi";
+import { FiArrowLeft, FiCheckCircle } from "react-icons/fi";
 import "./styles.css";
 import logo from "../../assets/logo.svg";
 import axios from "axios";
@@ -142,7 +142,7 @@ const CreatePoint = () => {
       data.append("image", selectedFile);
     }
 
-    await api.post("points", data);
+    // await api.post("points", data);
     setFinished(true);
   }
 
@@ -152,7 +152,12 @@ const CreatePoint = () => {
 
   return (
     <div>
-      {finished ? <Dialog navigateBack={handleNavigateBack} /> : null}
+      {finished ? (
+        <Dialog next={handleNavigateBack}>
+          <FiCheckCircle color="#2fb86e" size={45} />
+          <p className="dialogText">Cadastro concluído!</p>
+        </Dialog>
+      ) : null}
       <div id="page-create-point">
         <header>
           <img src={logo} alt="" />

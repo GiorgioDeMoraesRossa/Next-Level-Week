@@ -18,6 +18,25 @@
 
 #page-home .content header {
   margin: 48px 0 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+#page-home .content header a {
+  color: var(--title-color);
+  font-weight: bold;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+}
+
+#page-home .content header a svg {
+  margin-right: 16px;
+  color: var(--primary-color);
 }
 
 #page-home .content main {

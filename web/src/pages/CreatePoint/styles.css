@@ -201,3 +201,9 @@
   background: #e1faec;
   border: 2px solid #34cb79;
 }
+
+.dialogText {
+  color: #fff;
+  margin-top: 30px;
+  font-size: 35px;
+}
