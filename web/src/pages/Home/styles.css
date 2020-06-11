@@ -30,6 +30,7 @@
   font-weight: bold;
   text-decoration: none;
 
+  background-color: rgba(255, 255, 255, 0.3);
   display: flex;
   align-items: center;
 }
@@ -59,7 +60,7 @@
   line-height: 38px;
 }
 
-#page-home .content main a {
+#page-home .content main button {
   width: 100%;
   max-width: 360px;
   height: 72px;
@@ -74,7 +75,7 @@
   margin-top: 40px;
 }
 
-#page-home .content main a span {
+#page-home .content main button span {
   display: block;
   background: rgba(0, 0, 0, 0.08);
   width: 72px;
@@ -86,20 +87,124 @@
   transition: background-color 0.2s;
 }
 
-#page-home .content main a span svg {
+#page-home .content main button span svg {
   color: #fff;
   width: 20px;
   height: 20px;
 }
 
-#page-home .content main a strong {
+#page-home .content main button strong {
   flex: 1;
   text-align: center;
   color: #fff;
+  font-size: 16px;
 }
 
-#page-home .content main a:hover {
+#page-home .content main button:hover {
   background: #2fb86e;
+}
+
+.container .container-texts-inputs {
+  padding: 10px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container .container-texts-inputs .field {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-texts-inputs .field select {
+  flex: 1;
+  background: #f0f0f5;
+  border-radius: 8px;
+  border: 0;
+  padding: 16px 24px;
+  font-size: 16px;
+  color: #6c6c80;
+  margin-bottom: 20px;
+  width: 300px;
+}
+
+.container-texts-inputs .field label {
+  font-size: 24px;
+  color: #fff;
+  align-self: center;
+  margin-bottom: 8px;
+}
+
+.container-texts-inputs .field select::placeholder {
+  color: #a0a0b2;
+}
+
+.container-texts-inputs a {
+  width: 100%;
+  max-width: 360px;
+  height: 64px;
+  background: #0f8a48;
+  border-radius: 8px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+.container-texts-inputs a span {
+  display: block;
+  background: rgba(0, 0, 0, 0.08);
+  width: 48px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.container-texts-inputs a span svg {
+  color: #fff;
+  width: 20px;
+  height: 20px;
+}
+
+.container-texts-inputs a strong {
+  flex: 1;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+}
+
+.container-texts-inputs a:hover {
+  background: #0b6e39;
+  cursor: pointer;
+}
+
+.container header {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container header button {
+  color: #2fb86e;
+  font-weight: bold;
+  background-color: transparent;
+  border: transparent;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.container header button:hover {
+  cursor: pointer;
+}
+
+.container header button svg {
+  margin-right: 16px;
+  color: var(--primary-color);
 }
 
 @media (max-width: 900px) {

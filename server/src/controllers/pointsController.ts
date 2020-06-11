@@ -6,6 +6,7 @@ class PointsController {
     const points = await knex("points").select("*");
     return res.json(points);
   }
+
   async index(req: Request, res: Response) {
     const { city, uf, items } = req.query;
     const parsedItems = String(items)
@@ -49,6 +50,36 @@ class PointsController {
       .select("items.title");
 
     return res.json({ point: serializedPoint, items });
+  }
+
+  async showWItems(req: Request, res: Response) {
+    const { city, uf } = req.query;
+
+    const points = await knex("points")
+      .join("point_items", "point_id", "=", "point_items.point_id")
+      .where("city", String(city))
+      .where("uf", String(uf))
+      .distinct()
+      .select("points.*");
+
+    const serializedPoints = points.map((point) => {
+      return {
+        ...point,
+        image_url: `http://192.168.10.104:3333/uploads/${point.image}`,
+      };
+    });
+
+    const promises = await points.map(async (point) => {
+      const itemsTemp = await knex("items")
+        .join("point_items", "items.id", "=", "point_items.item_id")
+        .where("point_items.point_id", point.id)
+        .select("items.title");
+      return itemsTemp;
+    });
+
+    const itemsPoints = await Promise.all(promises).then((results) => results);
+
+    return res.json({ points: serializedPoints, items: itemsPoints });
   }
 
   async create(req: Request, res: Response) {

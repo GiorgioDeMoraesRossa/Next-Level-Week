@@ -37,6 +37,7 @@ routes.post(
 
 routes.get("/points/", pointsController.index);
 routes.get("/pointsAll/", pointsController.showAll);
+routes.get("/pointsItems/", pointsController.showWItems);
 routes.get("/points/:id", pointsController.show);
 
 export default routes;
