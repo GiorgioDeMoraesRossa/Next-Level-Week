@@ -1,6 +1,6 @@
 # Next-Level-Week
 
-Projeto construido durante a Next Level Week (evento da Rocketseat) com foco na stack NodeJs, ReactJs e React Navtive.
+Projeto construido durante a Next Level Week (evento da Rocketseat) com foco na stack NodeJs, ReactJs e React Navtive. O projeto desenvolvido consistiu em um site para cadastrar pontos de coleta e um aplicativo para procurar pontos de coleta (e uma API para guardar as informações e comunicar entre a parte web e a parte mobile). Para as partes extras que produzi do projeto (pesquisa de pontos na web e vizualização dos detalhes de cada ponto) fiz apenas com o que lembrava dos designs, tendo em vista que o link não foi mais exposto ao fim do evento.
 
 ## Tecnologias
 
