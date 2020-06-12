@@ -24,6 +24,12 @@ interface Point {
   name: string;
   city: string;
   uf: string;
+  latitude: number;
+  longitude: number;
+}
+
+interface Items {
+  title: string;
 }
 
 interface Data {
@@ -38,13 +44,13 @@ const FindPoint = (props: Props) => {
 
   useEffect(() => {
     api
-      .get("pointsItems", {
-        params: {
-          city: props.location.state.selectedCity,
-          uf: props.location.state.selectedUf,
-        },
-      })
+      .get(
+        `pointsItems?city=${encodeURIComponent(
+          String(props.location.state.selectedCity).trim()
+        )}&uf=${props.location.state.selectedUf}`
+      )
       .then((response) => {
+        console.log(response);
         let arr = [{} as Data];
         let count = 0;
         for (response.data.points of response.data.points) {
@@ -57,7 +63,8 @@ const FindPoint = (props: Props) => {
           ];
           count++;
         }
-        arr = arr.slice(1, 5);
+        arr = arr.slice(1);
+
         if (arr.length > 0) {
           setPoints(arr);
         }
@@ -78,16 +85,23 @@ const FindPoint = (props: Props) => {
           <ul className="items-grid">
             {!!points ? (
               points.map((point) => (
-                <li key={point.point.id}>
+                <Link
+                  className="point"
+                  to={{
+                    pathname: "/point",
+                    state: { point: point.point, items: point.items },
+                  }}
+                  key={point.point.id}
+                >
                   <img src={point.point.image_url} alt="Ponto" />
                   <span> {point.point.name}</span>
                   <p>
-                    {point.point.city}, {point.point.uf}{" "}
+                    {point.point.city}, {point.point.uf}
                   </p>
                   <p className="items-text">
                     {point.items.map((item) => item.title).join(", ")}
                   </p>
-                </li>
+                </Link>
               ))
             ) : (
               <div className="zero">

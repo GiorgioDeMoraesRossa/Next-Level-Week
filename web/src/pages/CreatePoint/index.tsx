@@ -142,7 +142,7 @@ const CreatePoint = () => {
       data.append("image", selectedFile);
     }
 
-    // await api.post("points", data);
+    await api.post("points", data);
     setFinished(true);
   }
 
