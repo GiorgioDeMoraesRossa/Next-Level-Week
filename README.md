@@ -52,3 +52,5 @@ npm install && expo start
 #### Demonstração da versão mobile
 
 ![Demo versão mobile](demo/demoMob.gif)
+
+obs: Na demo Mobile não aparecem as imagens do tipo de lixo para ser selecionado pois não possuía mais os arquivos disponibilizados pela Rocketseat quando o gravei. Para a versão web arrumei svgs semelhantes para não ficar em branco novamente.
